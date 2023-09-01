@@ -9,5 +9,5 @@ RUN gradle --no-daemon build --stacktrace
 FROM openjdk:17-alpine
 WORKDIR /app
 RUN apk --no-cache add curl
-COPY --from=builder /app/build/libs/*.jar /kafka-mirror.jar
-CMD ["java", "-jar", "-Dspring.profile.active=default", "kafka-mirror.jar"]
+COPY --from=builder /app/build/libs/*.jar ./kafka-mirror.jar
+CMD ["java", "-jar", "-Dspring.profile.active=default", "./kafka-mirror.jar"]
