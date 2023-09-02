@@ -2,7 +2,6 @@ FROM    gradle:jdk17-alpine AS builder
 WORKDIR /app
 COPY    build.gradle.kts build.gradle.kts
 COPY    settings.gradle.kts settings.gradle.kts
-COPY    .git .git
 COPY     src/ src/
 RUN gradle --no-daemon build --stacktrace
 
